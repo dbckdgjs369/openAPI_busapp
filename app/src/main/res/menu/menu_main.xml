@@ -1,9 +1,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.myapplication.MainActivity" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+    tools:context="com.example.myapplication.MainActivity"
+    >
+    <item
+        android:id="@+id/action_btn1"
+        android:icon="@android:drawable/ic_menu_mylocation"
+        android:title="버튼1"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_btn3"
+        android:icon="@android:drawable/ic_menu_search"
+        android:text="action_btn3"
+        android:title="버튼3"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_btn4"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="버튼4"
+        app:showAsAction="ifRoom" />
+
+
 </menu>
