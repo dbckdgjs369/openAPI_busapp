@@ -10,11 +10,12 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_btn3"
+        android:id="@+id/toolbar_search"
         android:icon="@android:drawable/ic_menu_search"
         android:text="action_btn3"
-        android:title="버튼3"
-        app:showAsAction="always" />
+        android:title="search"
+        app:showAsAction="always"
+        app:actionViewClass = "android.widget.SearchView"/>
 
     <item
         android:id="@+id/action_btn4"
