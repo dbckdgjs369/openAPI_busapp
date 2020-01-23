@@ -17,10 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
+
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
+
+
             </TabWidget>
 
             <FrameLayout
@@ -37,7 +40,6 @@
                         android:id="@+id/tableRow1"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
-
 
                         <TextView
                             android:id="@+id/textView1"
