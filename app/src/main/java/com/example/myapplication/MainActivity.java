@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
        // StrictMode.enableDefaults();
 
         TextView status1 = (TextView) findViewById(R.id.textView1); //파싱된 결과확인!
+
         //new HTTPReqTask().execute();/////
         boolean initem = false, inAddr = false, inChargeTp = false, inCpId = false, inCpNm = false;
         boolean inCpStat = false, inCpTp = false, inCsId = false, inCsNm = false, inLat = false;
@@ -103,18 +104,17 @@ public class MainActivity extends AppCompatActivity {
             parser.next();
 
             int parserEvent = parser.getEventType();
-            System.out.println("파싱시작합니다.");
 
             while (parserEvent != XmlPullParser.END_DOCUMENT){
                 switch(parserEvent){
                     case XmlPullParser.START_TAG://parser가 시작 태그를 만나면 실행
-                        if(parser.getName().equals("addr")){ //title 만나면 내용을 받을수 있게 하자
+                        if(parser.getName().equals("BUSSTOP_NM")){ //정류장 이름 만나면 내용을 받을수 있게
                             inAddr = true;
                         }
-                        if(parser.getName().equals("chargeTp")){ //address 만나면 내용을 받을수 있게 하자
+                        if(parser.getName().equals("BUSSTOP_TP")){ //address 만나면 내용을 받을수 있게 하자
                             inChargeTp = true;
                         }
-                        if(parser.getName().equals("cpId")){ //mapx 만나면 내용을 받을수 있게 하자
+                        if(parser.getName().equals("BUS_STOP_ID")){ //mapx 만나면 내용을 받을수 있게 하자
                             inCpId = true;
                         }
                         if(parser.getName().equals("cpNm")){ //mapy 만나면 내용을 받을수 있게 하자
@@ -194,11 +194,13 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case XmlPullParser.END_TAG:
-                        if(parser.getName().equals("item")){
-                            status1.setText(status1.getText()+"주소 : "+ addr +"\n 충전기 타입: "+ chargeTp +"\n 충전소ID : " + cpId
-                                    +"\n 충전기 명칭 : " + cpNm +  "\n 충전기 상태 코드 : " + cpStat+ "\n 충전 방식 : " + cpTp
-                                    +"\n 충전소 ID : " +csId + "\n 충전소 명칭 : " + csNm + "\n 위도 : " +lat
-                                    +"\n 경도 : " +longi +"\n 충전기상태갱신시각 : " +statUpdateDatetime+"\n");
+
+                        if(parser.getName().equals("itemList")){
+                            status1.setText(status1.getText()+"주소 : "+ addr +"\n\n");
+//                                    "\n 충전기 타입: "+ chargeTp +"\n 충전소ID : " + cpId
+//                                    +"\n 충전기 명칭 : " + cpNm +  "\n 충전기 상태 코드 : " + cpStat+ "\n 충전 방식 : " + cpTp
+//                                    +"\n 충전소 ID : " +csId + "\n 충전소 명칭 : " + csNm + "\n 위도 : " +lat
+//                                    +"\n 경도 : " +longi +"\n 충전기상태갱신시각 : " +statUpdateDatetime+"\n");
                             initem = false;
                         }
                         break;
